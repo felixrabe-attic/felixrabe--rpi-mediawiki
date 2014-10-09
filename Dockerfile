@@ -1,7 +1,8 @@
 # Naive approach,
 # following http://trevorappleton.blogspot.ch/2013/04/installing-mediawiki-on-raspberry-pi.html
 
-FROM sdhibit/rpi-raspbian
+# FROM sdhibit/rpi-raspbian
+FROM resin/rpi-raspbian
 
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mediawiki
