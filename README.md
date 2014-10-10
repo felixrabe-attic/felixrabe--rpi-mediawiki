@@ -1,6 +1,7 @@
 # MediaWiki installation for Raspberry Pi
 
-    docker run --name mediawiki -d felixrabe/rpi-mediawiki
+    docker run --name mediawiki -d -p 80:80 felixrabe/rpi-mediawiki
+    docker logs -f mediawiki
 
 https://registry.hub.docker.com/u/felixrabe/rpi-mediawiki/
 
@@ -9,11 +10,16 @@ https://github.com/felixrabe/rpi-mediawiki
 This installation works, but make sure you do not expose any public ports to
 the Internet. Feel free to contribute by creating issues and PRs on GitHub.
 
-**WARNING: Security issues I know of in the current version:**
+**WARNING: Security issues (and other issues) I know of in the current version:**
 
 -   First of all, I'm totally new to MediaWiki, so I might even have missed
     the biggest point here. Please open issues on GitHub for anything I've
     missed.
+
+-   Your data is not completely safe in this setup, as it gets stored right
+    inside the container together with the application itself. This should
+    be improved using a [shared volume with a data
+    container](https://docs.docker.com/userguide/dockervolumes/).
 
 -   No automated build. I don't think there is a way yet to create an
     automated build for ARM images on the Docker Registry without cross-
