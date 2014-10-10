@@ -18,8 +18,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename      = "Raspberry Pi Information Hub";
-$wgMetaNamespace = "Raspberry_Pi_Information_Hub";
+$wgSitename      = "Isolated RPi MediaWiki using Docker";
+$wgMetaNamespace = "Isolated_RPi_MediaWiki_using_Docker";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -98,11 +98,11 @@ $wgShellLocale = "C.UTF-8";
 # Site language code, should be one of the list in ./languages/Names.php
 $wgLanguageCode = "en";
 
-$wgSecretKey = "11bb8460873caef91ece684f1e6ded9733129300ebf856389bb82660af0a221c";
+$wgSecretKey = "aaed66c38e9a47af2e622779e2bd1caa31651c840d09416b971b83ce47f696ce";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "d99de6899b2cc1e2";
+$wgUpgradeKey = "29366a9e9465baa1";
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'standard', 'nostalgia', 'cologneblue', 'monobook', 'vector':
