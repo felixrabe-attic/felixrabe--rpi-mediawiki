@@ -5,7 +5,7 @@ set -e
 apache2ctl start
 /etc/init.d/mysql start
 already_installed=false
-if mysql -u root -B mysql <<<'' 2>/dev/null ; then
+if ! mysql -u root -B mysql <<<'' 2>/dev/null ; then
   already_installed=true
 fi
 
