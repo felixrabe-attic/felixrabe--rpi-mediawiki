@@ -9,7 +9,7 @@ if mysql -u root -B mysql <<<'' 2>/dev/null ; then
   already_installed=true
 fi
 
-if ! already_installed ; then
+if ! $already_installed ; then
   mysql -u root -B <<'EOT'
     create database if not exists my_wiki;
     grant index, create, select, insert, update, delete, alter, lock tables on my_wiki.* to 'wikiuser'@'localhost' identified by 'wupasswd';
@@ -25,7 +25,7 @@ if [[ $1 = setup ]] ; then
   exit 0
 fi
 
-if ! already_installed ; then
+if ! $already_installed ; then
   echo 'Loading the database... (this will take a moment)'
   gunzip -c /bootstrap.sql.gz | mysql -u root -B my_wiki
 fi
