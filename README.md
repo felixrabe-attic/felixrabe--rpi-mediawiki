@@ -8,30 +8,34 @@ https://registry.hub.docker.com/u/felixrabe/rpi-mediawiki/
 https://github.com/felixrabe/rpi-mediawiki
 
 This installation works, but make sure you do not expose any public ports to
-the Internet. Feel free to contribute by creating issues and PRs on GitHub.
+the Internet because of the security issues listed below. Feel free to
+contribute by creating issues and PRs on GitHub.
 
-**WARNING: Security issues (and other issues) I know of in the current version:**
+
+## WARNING: Security issues (and other issues) I know of in the current version
 
 -   First of all, I'm totally new to MediaWiki, so I might even have missed
     the biggest point here. Please open issues on GitHub for anything I've
     missed.
 
 -   Your data is not completely safe in this setup, as it gets stored right
-    inside the container together with the application itself. This should
-    be improved using a [shared volume with a data
-    container](https://docs.docker.com/userguide/dockervolumes/).
+    inside the container together with the application itself. This should be
+    improved using a [shared volume with a data
+    container](https://docs.docker.com/userguide/dockervolumes/), so that data
+    backups and application updates can happen more easily.
 
 -   No automated build. I don't think there is a way yet to create an
-    automated build for ARM images on the Docker Registry without cross-
-    compilation hackery, but if there is, please let me know via a GitHub
+    automated build for ARM images on the Docker Registry without
+    cross-compilation hackery, but if there is, please let me know via a GitHub
     issue.
 
--   wgUpgradeKey is set to the static value as published on GitHub. Change
-    your LocalConfig.php to something else.
+-   wgUpgradeKey is set to the static value as published on GitHub. Please
+    change your LocalSettings.php to something else.
 
 -   MySQL has no root password set.
 
--   There might be things (Apache, MySQL) running as root that should not.
+-   There might be things (Apache, MySQL) running as root that should not. No
+    effort was expended on user account setup.
 
 
 ## How this image was created
