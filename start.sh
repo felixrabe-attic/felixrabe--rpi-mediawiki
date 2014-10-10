@@ -19,6 +19,7 @@ if [[ $1 = setup ]] ; then
   exit 0
 fi
 
+echo 'Loading the database... (this will take a moment)'
 gunzip -c /bootstrap.sql.gz | mysql -u root -B my_wiki
 
 echo
