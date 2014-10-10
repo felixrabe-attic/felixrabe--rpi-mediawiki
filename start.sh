@@ -19,7 +19,7 @@ if [[ $1 = setup ]] ; then
   exit 0
 fi
 
-gunzip -c /bootstrap.sql.gz | mysql -u root -B
+gunzip -c /bootstrap.sql.gz | mysql -u root -B my_wiki
 
 echo
 echo 'Open http://<ip_of_raspberry_pi>/mediawiki/ in your browser.'
