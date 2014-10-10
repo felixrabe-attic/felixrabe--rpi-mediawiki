@@ -19,7 +19,8 @@ if [[ $1 = setup ]] ; then
   exit 0
 fi
 
-php /var/lib/mediawiki/maintenance/update.php --quick
+gunzip -c /bootstrap.sql.gz | mysql -u root -B
+
 echo
 echo 'Open http://<ip_of_raspberry_pi>/mediawiki/ in your browser.'
 while true ; do sleep 10 ; done

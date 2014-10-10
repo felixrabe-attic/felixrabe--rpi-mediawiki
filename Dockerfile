@@ -13,6 +13,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y less nano
 
 ADD LocalSettings.php /etc/mediawiki/LocalSettings.php
 ADD start.sh /start.sh
+ADD bootstrap.sql.gz /bootstrap.sql.gz
 EXPOSE 80
 
 CMD ["/start.sh"]
