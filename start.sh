@@ -1,14 +1,20 @@
 #!/bin/bash
 
 set -e
-echo "Args: $@"
 
 apache2ctl start
 /etc/init.d/mysql start
-mysql -u root -B <<'EOT'
-create database if not exists my_wiki;
-grant index, create, select, insert, update, delete, alter, lock tables on my_wiki.* to 'wikiuser'@'localhost' identified by 'wupasswd';
+already_installed=false
+if mysql -u root -B mysql <<<'' 2>/dev/null ; then
+  already_installed=true
+fi
+
+if ! already_installed ; then
+  mysql -u root -B <<'EOT'
+    create database if not exists my_wiki;
+    grant index, create, select, insert, update, delete, alter, lock tables on my_wiki.* to 'wikiuser'@'localhost' identified by 'wupasswd';
 EOT
+fi
 
 if [[ $1 = setup ]] ; then
   echo 'Just did enough for you to run the setup.'
@@ -19,8 +25,10 @@ if [[ $1 = setup ]] ; then
   exit 0
 fi
 
-echo 'Loading the database... (this will take a moment)'
-gunzip -c /bootstrap.sql.gz | mysql -u root -B my_wiki
+if ! already_installed ; then
+  echo 'Loading the database... (this will take a moment)'
+  gunzip -c /bootstrap.sql.gz | mysql -u root -B my_wiki
+fi
 
 echo
 echo 'Open http://<ip_of_raspberry_pi>/mediawiki/ in your browser.'
