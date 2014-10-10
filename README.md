@@ -47,6 +47,12 @@ then run
     # Follow the instructions at the end. And then:
     gzip bootstrap.sql
 
+and finally
+
+    docker build -t felixrabe/rpi-mediawiki:nn-xxxxxxx .
+    # 'nn' is a sequential "version" number, 'xxxxxxx' is the Git commit.
+    docker tag felixrabe/rpi-mediawiki:nn-xxxxxxx felixrabe/rpi-mediawiki:latest
+
 
 ## License
 
