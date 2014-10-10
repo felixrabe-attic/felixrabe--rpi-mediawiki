@@ -29,7 +29,7 @@ $wgScriptPath       = "/mediawiki";
 $wgScriptExtension  = ".php";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer           = "http://192.168.1.35";
+# $wgServer           = "http://192.168.1.35";
 
 ## The relative URL path to the skins directory
 $wgStylePath        = "$wgScriptPath/skins";
@@ -43,8 +43,8 @@ $wgLogo             = "$wgStylePath/common/images/wiki.png";
 $wgEnableEmail      = true;
 $wgEnableUserEmail  = true; # UPO
 
-$wgEmergencyContact = "apache@192.168.1.35";
-$wgPasswordSender   = "apache@192.168.1.35";
+# $wgEmergencyContact = "apache@192.168.1.35";
+# $wgPasswordSender   = "apache@192.168.1.35";
 
 $wgEnotifUserTalk      = false; # UPO
 $wgEnotifWatchlist     = false; # UPO
