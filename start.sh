@@ -8,6 +8,7 @@ apache2ctl start
 mysql -u root -B <<'EOT'
 create database if not exists my_wiki;
 EOT
+php /var/lib/mediawiki/maintenance/update.php
 echo
 echo 'Open http://<ip_of_raspberry_pi>/mediawiki/ in your browser.'
 while true ; do sleep 10 ; done
